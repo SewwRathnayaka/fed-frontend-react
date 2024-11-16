@@ -2,6 +2,14 @@ import Hero from "./Hero";
 import Navigation from "./Navigation";
 import {Button} from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Switch } from "@/components/ui/switch";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import {
   Card,
@@ -10,7 +18,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
+
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+
 
 function App() {
 
@@ -27,13 +42,32 @@ function App() {
             <CardHeader>
               <Badge className="w-fit">New</Badge>
               <CardTitle>Product Name</CardTitle> 
-              <CardDescription>Product Description</CardDescription>
+              <CardDescription>
+               <HoverCard>
+                  <HoverCardTrigger>Product Description</HoverCardTrigger>
+                  <HoverCardContent>
+                  main features: ultra-lightweight, colourful design, a dynamic driver, easy device pairing
+                  </HoverCardContent>
+                </HoverCard>
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <p>Product Content</p>
+              <Select>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Select a color" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="light">Light</SelectItem>
+                  <SelectItem value="dark">Dark</SelectItem>
+                  <SelectItem value="blue">System</SelectItem>
+                </SelectContent>
+              </Select>
             </CardContent>
             <CardFooter>
               <Button>Buy Now</Button>
+              <p className="flex p-4">Add to cart</p>
+              <Switch/>
             </CardFooter>
           </Card>
         </div>
